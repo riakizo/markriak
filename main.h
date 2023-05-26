@@ -20,5 +20,4 @@ int check(char *execut);
 char *pathSearch(char *av);
 int handleBuiltIn(char **args);
 void handle_env(void);
-void handle_exit(void);
 #endif

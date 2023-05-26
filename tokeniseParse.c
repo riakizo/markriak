@@ -1,5 +1,9 @@
 #include "main.h"
-
+/**
+ * tokeniseParse - tokenise and parse
+ * @input: input
+ * Return: char **
+ */
 char **tokeniseParse(char *input)
 {
 	char **args, *input_copy, *token;
@@ -9,7 +13,6 @@ char **tokeniseParse(char *input)
 	if (!input_copy)
 		return (NULL);
 	_strcpy(input_copy, input);
-
 	token = strtok(input_copy, " ");
 	while (token)
 	{

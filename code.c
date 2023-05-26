@@ -1,5 +1,12 @@
 #include "main.h"
 
+/**
+ * main - main
+ * @ac: argc
+ * @av: argv
+ * @envp: env var
+ * Return: 0
+ */
 int main(int ac, char **av, char **envp)
 {
 	char **argv = NULL, *input = NULL, *out;
@@ -17,7 +24,7 @@ int main(int ac, char **av, char **envp)
 		if (i == -1)
 			break;
 		argv = tokeniseParse(input);
-		if (argv == NULL || argv[0]== NULL)
+		if (argv == NULL || argv[0] == NULL)
 			continue;
 		if (handleBuiltIn(argv))
 		{
@@ -43,6 +50,11 @@ int main(int ac, char **av, char **envp)
 	return (0);
 }
 
+/**
+ * pathSearch - search path
+ * @av: argv
+ * Return: char *
+ */
 char *pathSearch(char *av)
 {
 	char *out;
@@ -62,7 +74,11 @@ char *pathSearch(char *av)
 	return (out);
 }
 
-
+/**
+ * check - check
+ * @execut: execute
+ * Return: int
+ */
 int check(char *execut)
 {
 	struct dirent *dir;
@@ -84,7 +100,11 @@ int check(char *execut)
 	return (0);
 }
 
-
+/**
+ * handleBuiltIn - handle built in commands
+ * @args: args
+ * Return: int
+ */
 int handleBuiltIn(char **args)
 {
 	if (_strcmp(args[0], "env"))
@@ -97,7 +117,9 @@ int handleBuiltIn(char **args)
 	else
 		return (0);
 }
-
+/**
+ * handle_env - prints envp
+ */
 void handle_env(void)
 {
 	int i;
@@ -108,9 +130,4 @@ void handle_env(void)
 		_putchar('\n');
 		i++;
 	}
-}
-
-void handle_exit(void)
-{
-	exit(0);
 }
